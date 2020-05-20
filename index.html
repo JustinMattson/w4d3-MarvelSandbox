@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/superhero/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <script
+      src="https://kit.fontawesome.com/e48b493767.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Marvel_Sandbox</title>
+  </head>
+
+  <body>
+    <header class="container-fluid bg-info text-dark text-center">
+      <h1>Marvel_Sandbox</h1>
+    </header>
+    <main class="container">
+      <div class="row">
+        <div class="col-6 text-center">
+          Marvel API
+          <div class="row">
+            <div id="marvelCards" class="col-12 list-container px-0">
+              Place Marvel API Cards Here
+              <div class="card-columns">
+                <!-- CARD TEMPLATE API -->
+                <div class="card shadow border-warning m-2">
+                  <img
+                    src="//placehold.it/200x200"
+                    class="card-img-top p-2"
+                    alt="..."
+                  />
+                  <div class="card-body p-2">
+                    <h5 class="card-title text-left text-primary">
+                      Card title that wraps to a new line
+                    </h5>
+                    <p class="card-text text-left">
+                      This is a longer card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer.
+                    </p>
+                    <p class="small text-muted mb-0">#a87s6d5f7a6sdf5</p>
+                  </div>
+                </div>
+                <!-- END CARD TEMPLATE -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 text-center">
+          Sandbox API
+          <div class="row">
+            <div id="sandboxCards" class="col-12 list-container px-0">
+              Place my Sandbox API Cards Here
+              <div class="card-columns">
+                <!-- CARD TEMPLATE API -->
+                <div class="card shadow border-warning m-2">
+                  <img
+                    src="//placehold.it/200x200"
+                    class="card-img-top p-2"
+                    alt="..."
+                  />
+                  <div class="card-body p-2">
+                    <h5 class="card-title text-left text-primary">
+                      Card title that wraps to a new line
+                    </h5>
+                    <p class="card-text text-left">
+                      This is a longer card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer.
+                    </p>
+                    <p class="small text-muted mb-0">#a87s6d5f7a6sdf5</p>
+                  </div>
+                </div>
+                <!-- END CARD TEMPLATE -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="container-fluid bg-info text-dark">
+      <div class="row text-center">
+        <div class="col pt-3">
+          <p>
+            <small
+              >Made with <i class="fas fa-heart"></i> by Justin Mattson</small
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="app/main.js" type="module"></script>
+  </body>
+</html>
