@@ -3,12 +3,14 @@ import Character from "../Models/Character.js";
 
 console.log("service");
 
+// @ts-ignore
 const _marvelAPI = axios.create({
   baseURL:
     "https://gateway.marvel.com:443/v1/public/characters?apikey=2148bbf76c5acd7c1b486d33517c8d71&limit=100&offset=100",
   timeout: 8000,
 });
 
+// @ts-ignore
 const _sandboxAPI = axios.create({
   baseURL: "https://bcw-sandbox.herokuapp.com/api/mattson/heroes",
   timeout: 15000,
