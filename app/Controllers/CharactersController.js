@@ -11,11 +11,28 @@ function _draw() {
 }
 console.log("controller");
 
+function _drawSandbox() {
+  let template = "";
+  let myCharacters = store.State.sandboxCharacters;
+  console.log(myCharacters);
+  console.log("^draw sandbox");
+  myCharacters.forEach((ch) => (template += ch.sandboxTemplate));
+  document.getElementById("sandboxCards").innerHTML = template;
+}
+
 //Public
 export default class CharactersController {
   constructor() {
     store.subscribe("characters", _draw);
+    store.subscribe("sandboxCharacters", _drawSandbox);
     //store.subscribe("marvelCharacters", _drawMarvelCharacters)
     //store.subscribe("sandboxCharacters", _drawMyCharacters)
+  }
+  addToSandbox(id) {
+    console.log(id);
+    CharactersService.addToSandbox(id);
+  }
+  removeFromSandbox(id) {
+    CharactersService.removeFromSandBox(id);
   }
 }

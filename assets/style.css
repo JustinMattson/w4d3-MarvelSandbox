@@ -9,7 +9,7 @@ main {
 }
 
 .list-container {
-  max-height: 100vh;
+  max-height: 83vh;
   overflow-y: scroll;
 }
 

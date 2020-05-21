@@ -3,25 +3,55 @@ import Character from "../Models/Character.js";
 
 console.log("service");
 
-// @ts-ignore
 const _marvelAPI = axios.create({
   baseURL:
-    "https://gateway.marvel.com:443/v1/public/characters?apikey=2148bbf76c5acd7c1b486d33517c8d71&limit=100&offset=100",
-  timeout: 8000,
+    "https://gateway.marvel.com/v1/public/characters?apikey=53496df3cd682930aa9108759e347171&limit=100&offset=100", // MARK
+  //"https://gateway.marvel.com:443/v1/public/characters?apikey=2148bbf76c5acd7c1b486d33517c8d71&limit=100&offset=100", // TIM
+  //timeout: 8000,
 });
 
-// @ts-ignore
 const _sandboxAPI = axios.create({
   baseURL: "https://bcw-sandbox.herokuapp.com/api/mattson/heroes",
-  timeout: 15000,
+  //timeout: 15000,
 });
 
 class CharactersService {
+  removeFromSandBox(id) {
+    _sandboxAPI
+      .delete(id)
+      .then((res) => {
+        console.log(res.data);
+        this.getMyCharacters();
+      })
+      .catch((e) => console.error(e));
+  }
+  addToSandbox(id) {
+    let myNewCharacter = store.State.characters.find((c) => c.id == id);
+    console.log(myNewCharacter);
+    console.log("^my New char");
+
+    _sandboxAPI
+      .post("", myNewCharacter)
+      .then((res) => {
+        console.log(res);
+        console.log("^hero created");
+
+        store.commit("sandboxCharacters", myNewCharacter);
+        this.getMyCharacters();
+      })
+      .catch((e) => console.error(e));
+  }
   getMyCharacters() {
+    console.log("getMyCharacters!");
     _sandboxAPI
       .get()
       .then((res) => {
-        console.log(res.data.data);
+        //console.log(res.data.data);
+        //console.log("^res.data.data");
+        let myCharacters = res.data.data.map((char) => new Character(char));
+        //console.log(myCharacters);
+        //console.log("^myCharacters");
+        store.commit("sandboxCharacters", myCharacters);
       })
       .catch((e) => console.error(e));
   }
@@ -29,9 +59,8 @@ class CharactersService {
     _marvelAPI
       .get()
       .then((res) => {
-        // console.log(res.data.data.results)
+        // console.log(res.data.data.results);
         // console.log("^res.data.data.results^");
-
         let rawData = res.data.data.results.filter(
           (e) => e.description.length > 0
         );
@@ -39,11 +68,10 @@ class CharactersService {
           (characterData) => new Character(characterData)
         );
         store.commit("characters", newCharacters);
-        console.log(newCharacters);
-        console.log("^character^");
+        // console.log(newCharacters);
+        // console.log("^character^");
       })
       .catch((e) => console.error(e));
-    this.getApiMarvel();
   }
   constructor() {
     this.getApiMarvel();
