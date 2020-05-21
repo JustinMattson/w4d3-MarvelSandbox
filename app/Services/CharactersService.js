@@ -33,6 +33,7 @@ class CharactersService {
     console.log(store.State.offset);
     console.log("^store offset");
   }
+  // TODO something is a little buggy here
   next(value) {
     console.log(value);
     console.log(store.State.offset);
