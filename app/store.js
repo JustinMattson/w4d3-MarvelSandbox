@@ -5,7 +5,10 @@ let _state = {
   activeCharacter: null,
   /** @type {Character[]} */
   characters: [],
+  /** @type {Character[]} */
   sandboxCharacters: [],
+  /** @type {0} */
+  offset: null,
 };
 
 /** Collection of listeners to be called based on keyed state changes
@@ -15,6 +18,7 @@ let _listeners = {
   activeCharacter: [],
   characters: [],
   sandboxCharacters: [],
+  offset: [],
 };
 
 //NOTE You should not need to change the code from this point down

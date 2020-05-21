@@ -24,6 +24,7 @@ function _drawSandbox() {
 export default class CharactersController {
   constructor() {
     store.subscribe("characters", _draw);
+    store.subscribe("offset", _draw);
     store.subscribe("sandboxCharacters", _drawSandbox);
     //store.subscribe("marvelCharacters", _drawMarvelCharacters)
     //store.subscribe("sandboxCharacters", _drawMyCharacters)
@@ -34,5 +35,11 @@ export default class CharactersController {
   }
   removeFromSandbox(id) {
     CharactersService.removeFromSandBox(id);
+  }
+  next(value) {
+    CharactersService.next(value);
+  }
+  previous(value) {
+    CharactersService.previous(value);
   }
 }

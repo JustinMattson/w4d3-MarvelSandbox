@@ -27,7 +27,18 @@
     <main class="container">
       <div class="row d-flex">
         <div class="col-6 text-center">
-          <h1 class="pt-3">Marvel API</h1>
+          <span class="d-flex justify-content-between pt-3">
+            <i
+              class="fas fa-arrow-left fa-2x action text-warning pl-5"
+              onclick="app.charactersController.previous(-100)"
+            >
+            </i>
+            <h1 class="">Marvel API</h1>
+            <i
+              class="fas fa-arrow-right fa-2x action text-warning pr-5"
+              onclick="app.charactersController.next(100)"
+            ></i>
+          </span>
           <div class="row">
             <div class="col-12 list-container px-0">
               <div
