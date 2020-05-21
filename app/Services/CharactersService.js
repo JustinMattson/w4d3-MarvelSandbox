@@ -7,9 +7,9 @@ let _offset = 0;
 
 const _marvelAPI = axios.create({
   baseURL:
-    "https://gateway.marvel.com:443/v1/public/characters?apikey=0a085765f533ed43cb533c66ed2c2d20&limit=100", // Justin
-  //"https://gateway.marvel.com/v1/public/characters?apikey=53496df3cd682930aa9108759e347171&limit=100", // MARK
-  //"https://gateway.marvel.com:443/v1/public/characters?apikey=2148bbf76c5acd7c1b486d33517c8d71&limit=100", // TIM
+    // "https://gateway.marvel.com:443/v1/public/characters?apikey=0a085765f533ed43cb533c66ed2c2d20&limit=100", // Justin
+    //"https://gateway.marvel.com/v1/public/characters?apikey=53496df3cd682930aa9108759e347171&limit=100", // MARK
+    "https://gateway.marvel.com:443/v1/public/characters?apikey=2148bbf76c5acd7c1b486d33517c8d71&limit=100", // TIM
   //timeout: 8000,
 });
 
