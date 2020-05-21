@@ -9,10 +9,15 @@ main {
 }
 
 .list-container {
-  max-height: 83vh;
+  max-height: 80vh;
   overflow-y: scroll;
 }
 
 .action {
   cursor: pointer;
+}
+
+.main-title {
+  color: orange;
+  text-shadow: 1px 1px 5px black;
 }

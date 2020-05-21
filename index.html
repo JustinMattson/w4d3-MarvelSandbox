@@ -22,20 +22,20 @@
 
   <body>
     <header class="container-fluid bg-info text-dark text-center">
-      <h1>Marvel Superheros!</h1>
+      <h1 class="main-title">Marvel Supers!</h1>
     </header>
-    <main class="container">
+    <main class="container-fluid">
       <div class="row d-flex">
-        <div class="col-6 text-center">
+        <div class="col-6 text-center border-right">
           <span class="d-flex justify-content-between pt-3">
             <i
-              class="fas fa-arrow-left fa-2x action text-warning pl-5"
+              class="fas fa-arrow-left fa-2x action text-warning"
               onclick="app.charactersController.previous(-100)"
             >
             </i>
-            <h1 class="">Marvel API</h1>
+            <h3 class="">Marvel API</h3>
             <i
-              class="fas fa-arrow-right fa-2x action text-warning pr-5"
+              class="fas fa-arrow-right fa-2x action text-warning"
               onclick="app.charactersController.next(100)"
             ></i>
           </span>
@@ -53,8 +53,8 @@
           </div>
         </div>
 
-        <div class="col-6 text-center">
-          <h1 class="pt-3">Sandbox API</h1>
+        <div class="col-6 text-center border-left">
+          <h3 class="pt-3">Sandbox API</h3>
           <div class="row">
             <div class="col-12 list-container px-0">
               <div
