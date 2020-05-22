@@ -80,10 +80,15 @@ class CharactersService {
     _marvelAPI
       .get(`&offset=${store.State.offset}`)
       .then((res) => {
-        console.log(res.data.data.results);
-        console.log("^res.data.data.results^");
+        // console.log(res.data.data.results);
+        // console.log("^res.data.data.results^");
         let rawData = res.data.data.results.filter(
           (e) => e.description.length > 0
+        );
+        rawData = rawData.filter(
+          (e) =>
+            e.thumbnail.path ==
+            "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
         );
         let newCharacters = rawData.map(
           (characterData) => new Character(characterData)
