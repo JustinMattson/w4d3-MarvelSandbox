@@ -85,11 +85,15 @@ class CharactersService {
         let rawData = res.data.data.results.filter(
           (e) => e.description.length > 0
         );
+        console.log(rawData);
+
         rawData = rawData.filter(
           (e) =>
             e.thumbnail.path ==
             "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
         );
+        console.log(rawData);
+
         let newCharacters = rawData.map(
           (characterData) => new Character(characterData)
         );
