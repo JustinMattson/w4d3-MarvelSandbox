@@ -20,11 +20,12 @@ const _sandboxAPI = axios.create({
 
 class CharactersService {
   calculateOffset(value) {
-    console.log(value);
-    if (store.State.offset < 100 || store.State.offset == null) {
-      _offset = value;
-    } else if (store.State.offset >= 1500) {
+    if (
+      (value < 0 && (_offset < 100 || store.State.offset == null)) ||
+      (value > 0 && (_offset >= 1400 || store.State.offset >= 1400))
+    ) {
       _offset = 0;
+      store.State.offset = 0;
     } else {
       _offset += value;
     }
