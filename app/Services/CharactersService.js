@@ -23,16 +23,12 @@ class CharactersService {
     console.log(value);
     if (store.State.offset < 100 || store.State.offset == null) {
       _offset = value;
-      console.log(_offset);
     } else if (store.State.offset >= 1500) {
       _offset = 0;
     } else {
       _offset += value;
-      console.log(_offset);
     }
     store.commit("offset", _offset);
-    console.log(store.State.offset);
-    console.log("^store offset");
   }
   previous(value) {
     this.calculateOffset(value);
