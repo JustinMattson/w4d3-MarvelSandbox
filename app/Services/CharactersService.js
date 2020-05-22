@@ -90,10 +90,14 @@ class CharactersService {
         rawData = rawData.filter(
           (e) =>
             e.thumbnail.path !=
-              "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" ||
-            e.thumbnail.path !=
-              "http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708"
+            "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
         );
+        rawData = rawData.filter(
+          (e) =>
+            e.thumbnail.path !=
+            "http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708"
+        );
+
         console.log(rawData);
 
         let newCharacters = rawData.map(
