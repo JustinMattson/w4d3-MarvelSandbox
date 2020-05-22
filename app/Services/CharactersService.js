@@ -19,30 +19,29 @@ const _sandboxAPI = axios.create({
 });
 
 class CharactersService {
-  previous(value) {
+  calculateOffset(value) {
     console.log(value);
-    if (_offset <= 100) {
-      _offset = 0;
+    if (store.State.offset < 100 || store.State.offset == null) {
+      _offset = value;
       console.log(_offset);
+    } else if (store.State.offset >= 1500) {
+      _offset = 0;
     } else {
-      _offset -= value;
+      _offset += value;
       console.log(_offset);
     }
     store.commit("offset", _offset);
-    this.getApiMarvel();
     console.log(store.State.offset);
     console.log("^store offset");
   }
+  previous(value) {
+    this.calculateOffset(value);
+    this.getApiMarvel();
+  }
   // TODO something is a little buggy here
   next(value) {
-    console.log(value);
-    console.log(store.State.offset);
-    _offset += value;
-    console.log(_offset);
-    store.commit("offset", _offset);
+    this.calculateOffset(value);
     this.getApiMarvel();
-    console.log(store.State.offset);
-    console.log("^store offset");
   }
   removeFromSandBox(id) {
     _sandboxAPI
@@ -82,7 +81,7 @@ class CharactersService {
   }
   getApiMarvel() {
     _marvelAPI
-      .get(`&offset=${_offset}`)
+      .get(`&offset=${store.State.offset}`)
       .then((res) => {
         console.log(res.data.data.results);
         console.log("^res.data.data.results^");
